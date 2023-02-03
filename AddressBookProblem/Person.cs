@@ -75,5 +75,64 @@ namespace AddressBookProblem
                 Console.WriteLine("...............................................");
             }
         }
+        //Create method to edit persons details
+        public void editContact(string name)
+        {
+            bool input = false;
+            Console.WriteLine("Enter:\n1:Edit first name\n2:Edit last name \n3:Edit Phone Number\n4:Edit Address\n5:Edit City\n6:Edit State\n7:Edit EmailID");
+            int option = Convert.ToInt32(Console.ReadLine());
+            foreach (Person person in data)
+            {
+                if (person.FirstName == name) 
+                {
+                    input = true;
+                    switch (option)
+                    {
+                        case 1:
+                            Console.Write("Enter new first name :");
+                            string newFirstName = Convert.ToString(Console.ReadLine());
+                            person.FirstName = newFirstName;
+                            break;
+                        case 2:
+                            Console.Write("Enter new last name :");
+                            string newLastName = Convert.ToString(Console.ReadLine());
+                            person.LastName = newLastName;
+                            break;
+                        case 3:
+                            Console.Write("Enter new PhoneNumber :");
+                            string newPhoneNumber = Convert.ToString(Console.ReadLine());
+                            person.PhoneNumber = newPhoneNumber;
+                            break;
+                        case 4:
+                            Console.Write("Enter new Address :");
+                            string newAddress = Convert.ToString(Console.ReadLine());
+                            person.Address = newAddress;
+                            break;
+                        case 5:
+                            Console.Write("Enter new City :");
+                            string newCity = Convert.ToString(Console.ReadLine());
+                            person.City = newCity;
+                            break;
+                        case 6:
+                            Console.Write("Enter new State :");
+                            string newState = Convert.ToString(Console.ReadLine());
+                            person.State = newState;
+                            break;
+                        case 7:
+                            Console.Write("Enter new EmailID :");
+                            string newEmailID = Convert.ToString(Console.ReadLine());
+                            person.EmailID = newEmailID;
+                            break;
+                        default:
+                            Console.WriteLine("Please Enter valid Option");
+                            break;
+                    }
+
+                }
+            }
+            if (input == false)
+                Console.WriteLine("First name not found");
+            Person.PrintPerson();
+        }
     }
 }
