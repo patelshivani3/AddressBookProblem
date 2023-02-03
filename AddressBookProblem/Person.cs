@@ -151,5 +151,50 @@ namespace AddressBookProblem
             if (flag == false)
                 Console.WriteLine("The contact is not found");
         }
+        //UC6- create multiple Address book method
+        public static void AddPerson1()
+        {
+            Console.Write("Enter how many contacts you want to add :");
+            int num = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < num; i++)
+            {
+                Person person = new Person();
+                Console.Write("Enter First Name: ");
+                person.FirstName = Console.ReadLine();
+                Console.Write("Enter Last Name: ");
+                person.LastName = Console.ReadLine();
+                Console.Write("Enter Phone Number: ");
+                person.PhoneNumber = Console.ReadLine();
+                Console.Write("Enter Address: ");
+                person.Address = Console.ReadLine();
+                Console.Write("Enter the City: ");
+                person.City = Console.ReadLine();
+                Console.Write("Enter the state: ");
+                person.State = Console.ReadLine();
+                Console.Write("Enter the EmailId:");
+                person.EmailID = Console.ReadLine();
+                data.Add(person);
+            }
+            Console.WriteLine("...............................................");
+        }
+        
+        public static void MultipleAddressBook()
+        {
+            //Create Dictionary
+            Dictionary<string, List<Person>> contactDict = new Dictionary<string, List<Person>>();      
+            int i = 1;
+            Console.WriteLine("How many Address Books you want to add :");
+            int input = Convert.ToInt32(Console.ReadLine());
+            while (i <= input)
+            {
+                Console.Write("Enter the name for Address Book :");
+                string Name = Console.ReadLine();
+                AddPerson1();
+                contactDict.Add(Name, data);
+                Console.WriteLine("\n" + Name);
+                PrintPerson();
+                i++;
+            }
+        }
     }
 }
