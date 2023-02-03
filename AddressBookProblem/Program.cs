@@ -12,7 +12,7 @@ namespace AddressBookProblem
         {
             Console.WriteLine("\nWelcome to Address Book Program");
           
-            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact");
+            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact\n5.Multiple Contacts");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -51,6 +51,13 @@ namespace AddressBookProblem
                     Console.Write("Enter the first name to edit contact :");
                     string name1 = Convert.ToString(Console.ReadLine());
                     removePerson.removeContact(name1);
+                    break;
+
+                case 5://UC2 - Add multiple Contacts
+                    Console.WriteLine("Enter the number of contact you want :");
+                    int num4 = Convert.ToInt32(Console.ReadLine());
+                    Person.AddPerson(num4);
+                    Person.PrintPerson();
                     break;
 
                 default:
