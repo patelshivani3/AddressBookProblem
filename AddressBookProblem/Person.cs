@@ -16,26 +16,45 @@ namespace AddressBookProblem
         public string State { get; set; }
         public string EmailID { get; set; }
         public static List<Person> data = new List<Person>();
+        //Default Constructor
+        public Person()
+        {
+
+        }
+        //Parameterized Constructor
+        public Person(string FirstName, string LastName, string PhoneNumber, string Address, string City, string State, string EmailID)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.PhoneNumber = PhoneNumber;
+            this.Address = Address;
+            this.City = City;
+            this.State = State;
+            this.EmailID = EmailID;
+        }
 
         //Create method to take user inputs
-        public static void AddPerson()
+        public static void AddPerson(int num)
         {
-            Person person = new Person();
-            Console.Write("Enter First Name: ");
-            person.FirstName = Console.ReadLine();
-            Console.Write("Enter Last Name: ");
-            person.LastName = Console.ReadLine();
-            Console.Write("Enter Phone Number: ");
-            person.PhoneNumber = Console.ReadLine();
-            Console.Write("Enter Address: ");
-            person.Address = Console.ReadLine();
-            Console.Write("Enter the City: ");
-            person.City = Console.ReadLine();
-            Console.Write("Enter the state: ");
-            person.State = Console.ReadLine();
-            Console.Write("Enter the EmailId:");
-            person.EmailID = Console.ReadLine();
-            data.Add(person);
+            for (int i = 0; i < num; i++)
+            {
+                Person person = new Person();
+                Console.Write("Enter First Name: ");
+                person.FirstName = Console.ReadLine();
+                Console.Write("Enter Last Name: ");
+                person.LastName = Console.ReadLine();
+                Console.Write("Enter Phone Number: ");
+                person.PhoneNumber = Console.ReadLine();
+                Console.Write("Enter Address: ");
+                person.Address = Console.ReadLine();
+                Console.Write("Enter the City: ");
+                person.City = Console.ReadLine();
+                Console.Write("Enter the state: ");
+                person.State = Console.ReadLine();
+                Console.Write("Enter the EmailId:");
+                person.EmailID = Console.ReadLine();
+                data.Add(person);
+            }
             Console.WriteLine("...............................................");
         }
         //Create method to display persons details
@@ -44,7 +63,7 @@ namespace AddressBookProblem
         { 
             foreach (Person person in data)
             {
-                Console.WriteLine("\nAddress book of Person");
+                Console.WriteLine("Address book of Person");
                 Console.WriteLine("---------------------------------------");
                 Console.WriteLine("First Name: " + person.FirstName);
                 Console.WriteLine("Last Name: " + person.LastName);
@@ -53,7 +72,7 @@ namespace AddressBookProblem
                 Console.WriteLine("City: " + person.City);
                 Console.WriteLine("State: " + person.State);
                 Console.WriteLine("EmailId: " + person.EmailID);
-                
+                Console.WriteLine("...............................................");
             }
         }
     }
