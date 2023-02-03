@@ -134,5 +134,22 @@ namespace AddressBookProblem
                 Console.WriteLine("First name not found");
             Person.PrintPerson();
         }
+        //Create method to delete contact
+        public void removeContact(string name)      
+        {
+            bool flag = false;
+            foreach (Person person1 in data)
+            {
+                if (person1.FirstName == name)
+                {
+                    flag = true;
+                    data.Remove(person1);
+                    Console.WriteLine("The contact is successfully removed");
+                    break;
+                }
+            }
+            if (flag == false)
+                Console.WriteLine("The contact is not found");
+        }
     }
 }
