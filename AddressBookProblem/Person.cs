@@ -63,7 +63,7 @@ namespace AddressBookProblem
         { 
             foreach (Person person in data)
             {
-                Console.WriteLine("Address book of Person");
+                Console.WriteLine("Address book of " + person.FirstName);
                 Console.WriteLine("---------------------------------------");
                 Console.WriteLine("First Name: " + person.FirstName);
                 Console.WriteLine("Last Name: " + person.LastName);
@@ -181,7 +181,7 @@ namespace AddressBookProblem
         public static void MultipleAddressBook()
         {
             //Create Dictionary
-            Dictionary<string, List<Person>> contactDict = new Dictionary<string, List<Person>>();      
+            Dictionary<string, List<Person>> personDict = new Dictionary<string, List<Person>>();      
             int i = 1;
             Console.WriteLine("How many Address Books you want to add :");
             int input = Convert.ToInt32(Console.ReadLine());
@@ -190,10 +190,18 @@ namespace AddressBookProblem
                 Console.Write("Enter the name for Address Book :");
                 string Name = Console.ReadLine();
                 AddPerson1();
-                contactDict.Add(Name, data);
+                personDict.Add(Name, data);
                 Console.WriteLine("\n" + Name);
                 PrintPerson();
                 i++;
+            }
+        }
+        public static void Duplicate(string firstName)
+        {
+            Person people = data.Find(p => p.FirstName.Equals(firstName));
+            if (people != null)
+            {
+                Console.WriteLine("Contact is already present");
             }
         }
     }

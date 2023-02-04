@@ -12,27 +12,27 @@ namespace AddressBookProblem
         {
             Console.WriteLine("\nWelcome to Address Book Program");
           
-            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact\n5.Multiple Contacts\n6.Multiple Address Book");
+            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact\n5.Multiple Contacts\n6.Multiple Address Book\n7.Check Duplicate Name");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
                
                 case 1: //UC1 - Create Contact
-                    Console.WriteLine("Enter the number of contact you want :");
+                    Console.WriteLine("Enter the number of contact you want to add:");
                     int num = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num);
                     Person.PrintPerson();
                     break;
 
                 case 2://UC2 - Add New Contact
-                    Console.WriteLine("Enter the number of contact you want :");
+                    Console.WriteLine("Enter the number of contact you want to add:");
                     int num1 = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num1);
                     Person.PrintPerson();
                     break;
 
                 case 3://UC3- Edit Contact
-                    Console.Write("Enter the Number of Contact You Want :");
+                    Console.Write("Enter the Number of Contact You Want to add:");
                     int num2 = Convert.ToInt32(Console.ReadLine());
                     Person addPerson = new Person();
                     Person.AddPerson(num2);
@@ -43,7 +43,7 @@ namespace AddressBookProblem
                     break;
 
                 case 4://UC4 - Remove Contact
-                    Console.Write("Enter the Number of Contact You Want :");
+                    Console.Write("Enter the Number of Contact You Want to add :");
                     int num3 = Convert.ToInt32(Console.ReadLine());
                     Person removePerson = new Person();
                     Person.AddPerson(num3);
@@ -54,7 +54,7 @@ namespace AddressBookProblem
                     break;
 
                 case 5://UC2 - Add multiple Contacts
-                    Console.WriteLine("Enter the number of contact you want :");
+                    Console.WriteLine("Enter the number of contact you want to add:");
                     int num4 = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num4);
                     Person.PrintPerson();
@@ -62,6 +62,18 @@ namespace AddressBookProblem
 
                 case 6:
                     Person.MultipleAddressBook();
+                    break;
+
+                case 7:
+                    Console.Write("Enter the number of contact you want to add:");
+                    int num5 = Convert.ToInt32(Console.ReadLine());
+                    Person.AddPerson(num5);
+                    Person.PrintPerson();
+                    Console.Write("Enter First Name: ");
+                    string name2 = Convert.ToString(Console.ReadLine());
+                    Person.Duplicate(name2);
+                    Person.AddPerson(num5);
+                    Person.PrintPerson();
                     break;
 
                 default:
