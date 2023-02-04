@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -17,6 +19,7 @@ namespace AddressBookProblem
         public string State { get; set; }
         public string EmailID { get; set; }
         public static List<Person> data = new List<Person>();
+        public static Dictionary<string, Person> contactDictionary = new Dictionary<string, Person>();
         //Default Constructor
         public Person()
         {
@@ -223,24 +226,30 @@ namespace AddressBookProblem
                 Console.WriteLine("...............................................");
             }
         }
-        //UC8
-        public static void SearchCityOrState(string city)
+        //UC8 and UC10
+        public static  void SearchCityOrState(int n,string city)
         {
             bool flag = false;
+            //int count =0 ;           
             foreach (Person person in data)
             {
-                if (person.City == city)
+                for (int i = 0; i < n; i++)
                 {
-                    flag = true;
-                    data.Add(person);
-                    Console.WriteLine("The contact is Found");
-                    break;
-                }
+                    if (person.City == city || person.State == city)
+                    {
+                        flag = true;
+                        Console.WriteLine("The contact is Found");
+                        //count++;
+                        data.Add(person);
+                        break;
+                    }
+                }                              
             }
-            
+            //Console.WriteLine(count + " Contacts are Present in Address Book");
             if (flag == false)
                 Console.WriteLine("The contact is not found");
-
         }
+        
+
     }
 }
