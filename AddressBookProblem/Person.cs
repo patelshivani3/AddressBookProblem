@@ -230,7 +230,7 @@ namespace AddressBookProblem
         public static  void SearchCityOrState(int n,string city)
         {
             bool flag = false;
-            //int count =0 ;           
+            int count =0 ;           
             foreach (Person person in data)
             {
                 for (int i = 0; i < n; i++)
@@ -239,13 +239,13 @@ namespace AddressBookProblem
                     {
                         flag = true;
                         Console.WriteLine("The contact is Found");
-                        //count++;
+                        count++;
                         data.Add(person);
                         break;
                     }
                 }                              
             }
-            //Console.WriteLine(count + " Contacts are Present in Address Book");
+            Console.WriteLine(count + " Contacts are Present in Address Book");
             if (flag == false)
                 Console.WriteLine("The contact is not found");
         }

@@ -86,7 +86,7 @@ namespace AddressBookProblem
                     Person.SearchCityOrState(num6,city);
                     break;
 
-                case 9://UC9
+                case 9://UC9 and UC10
                     Console.Write("Enter the number of contact you want to add:");
                     int num7 = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num7);
