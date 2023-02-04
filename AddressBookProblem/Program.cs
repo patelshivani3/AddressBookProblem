@@ -12,7 +12,7 @@ namespace AddressBookProblem
         {
             Console.WriteLine("\nWelcome to Address Book Program");
           
-            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact\n5.Multiple Contacts\n6.Multiple Address Book\n7.Check Duplicate Name");
+            Console.WriteLine("\n1.Create Contact\n2.Add New Contact\n3.Edit Contact\n4.Remove Contact\n5.Multiple Contacts\n6.Multiple Address Book\n7.Check Duplicate Name\n8.Search By city or state");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -53,18 +53,18 @@ namespace AddressBookProblem
                     removePerson.removeContact(name1);
                     break;
 
-                case 5://UC2 - Add multiple Contacts
+                case 5://UC5- Add multiple Contacts
                     Console.WriteLine("Enter the number of contact you want to add:");
                     int num4 = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num4);
                     Person.PrintPerson();
                     break;
 
-                case 6:
+                case 6://UC6
                     Person.MultipleAddressBook();
                     break;
 
-                case 7:
+                case 7://UC7
                     Console.Write("Enter the number of contact you want to add:");
                     int num5 = Convert.ToInt32(Console.ReadLine());
                     Person.AddPerson(num5);
@@ -74,6 +74,17 @@ namespace AddressBookProblem
                     Person.Duplicate(name2);
                     Person.AddPerson(num5);
                     Person.PrintPerson();
+                    break;
+
+                case 8://UC8
+                    Console.Write("Enter the number of contact you want to add:");
+                    int num6 = Convert.ToInt32(Console.ReadLine());
+                    Person.AddPerson(num6);
+                   // Person.PrintPerson();
+                    Console.Write("Enter The City: ");
+                    string city = Convert.ToString(Console.ReadLine());
+                    Person.SearchCityOrState(city);
+                    
                     break;
 
                 default:

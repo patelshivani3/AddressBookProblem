@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AddressBookProblem
 {
@@ -177,7 +178,7 @@ namespace AddressBookProblem
             }
             Console.WriteLine("...............................................");
         }
-        
+        //UC6
         public static void MultipleAddressBook()
         {
             //Create Dictionary
@@ -196,6 +197,7 @@ namespace AddressBookProblem
                 i++;
             }
         }
+        //UC7
         public static void Duplicate(string firstName)
         {
             Person people = data.Find(p => p.FirstName.Equals(firstName));
@@ -203,6 +205,42 @@ namespace AddressBookProblem
             {
                 Console.WriteLine("Contact is already present");
             }
+        }
+
+        public static void PrintPerson1(Person contact)
+        {
+            foreach (Person person in data)
+            {
+                Console.WriteLine("Address book of " + person.FirstName);
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("First Name: " + person.FirstName);
+                Console.WriteLine("Last Name: " + person.LastName);
+                Console.WriteLine("Phone Number: " + person.PhoneNumber);
+                Console.WriteLine("Address: " + person.Address);
+                Console.WriteLine("City: " + person.City);
+                Console.WriteLine("State: " + person.State);
+                Console.WriteLine("EmailId: " + person.EmailID);
+                Console.WriteLine("...............................................");
+            }
+        }
+        //UC8
+        public static void SearchCityOrState(string city)
+        {
+            bool flag = false;
+            foreach (Person person in data)
+            {
+                if (person.City == city)
+                {
+                    flag = true;
+                    data.Add(person);
+                    Console.WriteLine("The contact is Found");
+                    break;
+                }
+            }
+            
+            if (flag == false)
+                Console.WriteLine("The contact is not found");
+
         }
     }
 }
